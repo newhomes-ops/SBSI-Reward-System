@@ -122,7 +122,7 @@ button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
       <div class="fld"><label for="o1">Validated by (pillar owner / QA)</label><input type="text" id="o1" disabled></div>
       <div class="fld"><label for="o2">Validation date</label><input type="text" id="o2" disabled></div>
       <div class="fld"><label for="o3">Division Lead approval</label><input type="text" id="o3" disabled placeholder="Approved / Declined"></div>
-      <div class="fld"><label for="o4">Coins credited</label><input type="text" id="o4" disabled></div>
+      <div class="fld"><label for="o4">Coins credited (within range)</label><input type="text" id="o4" disabled></div>
       <div class="fld"><label for="o5">Recorded by (KLC)</label><input type="text" id="o5" disabled></div>
       <div class="fld"><label for="o6">Date recorded</label><input type="text" id="o6" disabled></div>
     </div>
@@ -153,7 +153,7 @@ button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
     "Customer Satisfaction": ["CSAT performance (min. 10 surveys)", "Customer feedback / commendation", "Quality / process adherence", "Ownership & resolution", "Customer experience / team contribution", "Exceptional individual interaction (spotlight)"],
     "Cross-Department Support": ["Significant assistance to another department's goal or project"]
   };
-  var RTYPES = [["Spot Award", 10], ["Cross-Department Recognition", 15], ["Mentorship Award", 15], ["Quality Excellence Award", 20], ["Zero-Defect Milestone", 20], ["Innovation / Process Improvement", 25], ["Employee of the Quarter", 40]];
+  var RTYPES = [["Spot Award", "10–20"], ["Cross-Department Recognition", "15–30"], ["Mentorship Award", "15–30"], ["Quality Excellence Award", "20–40"], ["Zero-Defect Milestone", "20–40"], ["Innovation / Process Improvement", "25–50"], ["Employee of the Quarter", "40–80"]];
   var DECL = ["The result is attributable to the nominee (or the named team).",
               "No customer, survey or metric was solicited, coached or influenced to produce this result.",
               "To my knowledge, no Critical incident, compliance issue or active Final Written Warning is linked to the nominee in this period.",
@@ -182,7 +182,7 @@ button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
     ['bdept', 'bdl', 'bproj'].forEach(function (id) { $(id).required = x; });
     $('teamwrap').hidden = !$('sc2').checked;
     var r = RTYPES.filter(function (t) { return t[0] === $('rtype').value; })[0];
-    $('pts').textContent = r ? 'Proposed coins: ' + r[1] + ' (credited only after approval)' : '';
+    $('pts').textContent = r ? 'Coin range: ' + r[1] + ' (placeholder; final coins set on approval)' : '';
   }
   $('pillar').addEventListener('change', function () { fillMeasures(); sync(); });
   f.addEventListener('change', sync);
@@ -239,7 +239,7 @@ button:focus-visible { outline: 2px solid var(--yellow); outline-offset: 2px; }
     L.push('2. ACHIEVEMENT');
     L.push('Title: ' + val('title'));
     L.push('Pillar: ' + val('pillar') + '   Measure: ' + val('measure'));
-    L.push('Recognition type: ' + val('rtype') + (r ? ' (proposed ' + r[1] + ' coins)' : '') + '   For: ' + radio('scope') + (radio('scope') === 'Team' && val('team') ? ' – ' + val('team') : ''));
+    L.push('Recognition type: ' + val('rtype') + (r ? ' (coin range ' + r[1] + ')' : '') + '   For: ' + radio('scope') + (radio('scope') === 'Team' && val('team') ? ' – ' + val('team') : ''));
     L.push('Period: ' + val('pstart') + ' to ' + val('pend'));
     if (!$('xdept').hidden) { L.push(''); L.push('2b. CROSS-DEPARTMENT'); L.push('Benefiting department: ' + val('bdept') + '   Benefiting Division Lead: ' + val('bdl')); L.push('Goal / project supported: ' + val('bproj')); }
     L.push('');
