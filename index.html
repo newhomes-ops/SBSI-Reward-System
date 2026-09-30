@@ -104,15 +104,14 @@ big.q { display: block; font-size: 30px; font-weight: bold; color: var(--navy); 
 svg text { font-family: var(--font); }
 
 /* form preview */
-.fp { border: 1px solid #999; font-size: 13px; }
-.fp .sec { background: var(--yellow); font-weight: bold; padding: 4px 10px; display: flex; justify-content: space-between; }
-.fp .row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 24px; padding: 8px 14px; }
-.fp .f { display: flex; gap: 8px; align-items: end; }
-.fp .f span { white-space: nowrap; }
-.fp .f i { flex: 1; border-bottom: 1px solid #333; height: 14px; }
-.chk { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 20px; padding: 6px 14px 10px; }
-.chk span::before { content: "☐ "; }
-
+.fp { border: 1px solid var(--grey); border-radius: 6px; overflow: hidden; font-size: 12px; background: #F7F9FC; }
+.fp .sec { background: var(--navy); color: var(--white); font-weight: bold; font-size: 13px; padding: 6px 12px; display: flex; justify-content: space-between; }
+.fp .sec small { font-weight: normal; opacity: .8; }
+.fp .row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px 10px; padding: 8px 12px 10px; }
+.fp .f { display: flex; flex-direction: column; gap: 2px; color: var(--ink2); }
+.fp .f i { display: block; height: 20px; background: var(--white); border: 1px solid #C3CAD8; border-radius: 3px; }
+.fp .f.w2 { grid-column: span 2; } .fp .f.w3 { grid-column: 1 / -1; }
+.fp .f i.tall { height: 34px; }
 .yes li::marker { content: "✓  "; color: var(--good); font-weight: bold; }
 .no li::marker { content: "✕  "; color: var(--bad); font-weight: bold; }
 .big-num { font-size: 44px; font-weight: bold; color: var(--sky); }
@@ -143,7 +142,7 @@ svg text { font-family: var(--font); }
       <ul style="margin-top:10px">
         <li>No common standard for what earns recognition across departments</li>
         <li>Good work that helps <em>other</em> teams goes unrecognized</li>
-        <li>Certification status and Cost of Quality are not tracked in one place</li>
+        <li>Certification status and quality results are not tracked in one place</li>
         <li>Corrective action varies by lead; no link to reward eligibility</li>
       </ul></div>
     <div class="card"><div class="lbl">What the program delivers</div>
@@ -152,7 +151,7 @@ svg text { font-family: var(--font); }
         <li>Every employee certified on every process they perform</li>
         <li>Timely, visible recognition, including cross-department support</li>
         <li>Consistent, documented accountability with due process</li>
-        <li>One auditable view of competency, quality cost and standing</li>
+        <li>One auditable view of competency, quality and recognition</li>
       </ul></div>
   </div>
   <div class="foot"></div>
@@ -181,7 +180,7 @@ svg text { font-family: var(--font); }
   <div class="s-kicker">Six components, each owned by a workstream in the action register</div>
   <div class="body grid g3" style="align-content:center">
     <div class="card"><div class="lbl">What is rewarded</div><h3>Achievement Pillars</h3><p>Quality, Efficiency, Delivery / Cycle Time, Customer Satisfaction</p><div class="owner">ODT · AWP · LWM · JPC / RDM</div></div>
-    <div class="card"><div class="lbl">How it converts</div><h3>Reward Criteria &amp; Coins</h3><p>Recognition categories, coin values and standing thresholds</p><div class="owner">RZM</div></div>
+    <div class="card"><div class="lbl">How it converts</div><h3>Reward Criteria &amp; Coins</h3><p>Recognition categories, coin values and eligibility rules</p><div class="owner">RZM</div></div>
     <div class="card"><div class="lbl">Across teams</div><h3>Cross-Department Recognition</h3><p>Rewards for significant support given to another department</p><div class="owner">Division Lead approval</div></div>
     <div class="card"><div class="lbl">The balance</div><h3>Performance Accountability</h3><p>Severity, corrective action, decertification, reward eligibility</p><div class="owner">Owner to be assigned · with HR</div></div>
     <div class="card"><div class="lbl">System of record</div><h3>Recording &amp; Redemption</h3><p>One log for coins and actions; redeem via Encashment, Coop, Canteen</p><div class="owner">KLC · RZM</div></div>
@@ -196,7 +195,7 @@ svg text { font-family: var(--font); }
   <div class="s-kicker">Each pillar owner defines its measures; the program applies one set of rules to all</div>
   <div class="body grid g4" style="align-content:center">
     <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Quality</h3><span class="pill pend">Pending</span></div>
-      <ul style="margin-top:12px"><li>First Pass Yield</li><li>Cost of Quality (₱)</li><li>Process certification status</li></ul>
+      <ul style="margin-top:12px"><li>First Pass Yield</li><li>Cost of Quality (placeholder)</li><li>Process certification status</li></ul>
       <div class="owner">ODT · due WW40.2<br>Suggested inputs, for ODT to confirm</div></div>
     <div class="card"><div style="display:flex;justify-content:space-between;align-items:center"><h3 style="margin:0">Efficiency</h3><span class="pill ok">Received</span></div>
       <ul style="margin-top:12px"><li>SLA adherence ≥ 98% / month</li><li>Peer / Pre-QA zero defect</li><li>Automation deployed</li><li>AHT, takt time vs baseline</li><li>Zero-delinquent goals</li></ul>
@@ -247,7 +246,7 @@ svg text { font-family: var(--font); }
       <div><div class="chev first">Submit</div><div class="d"><b>Employee, Team Lead or peer</b> completes the SBSI Reward Submission Form with evidence.<br><br>Cross-department: the benefiting department nominates.</div></div>
       <div><div class="chev">Validate</div><div class="d"><b>Pillar owner or QA</b> confirms the result, the evidence and the eligibility checks.</div></div>
       <div><div class="chev">Approve</div><div class="d"><b>Division Lead</b> approves the category and coins. Coins credit only on approval.</div></div>
-      <div><div class="chev">Record</div><div class="d"><b>Recording (KLC)</b> logs the award in the system of record. The scorecard updates each employee's standing.</div></div>
+      <div><div class="chev">Record</div><div class="d"><b>Recording (KLC)</b> logs the award in the system of record. The scorecard updates each employee's coin balance.</div></div>
       <div><div class="chev last">Redeem &amp; Recognize</div><div class="d"><b>Employee</b> redeems coins (Encashment, Coop, Canteen). Recognition is announced through program campaigns.</div></div>
     </div>
     <div style="margin-top:34px;display:flex;gap:30px;justify-content:center;font-size:15px;color:var(--ink2)">
@@ -270,21 +269,18 @@ svg text { font-family: var(--font); }
         <tr><td><b>Mentorship Award</b></td><td>Coached peers to a higher certification level</td><td class="n">15</td></tr>
         <tr><td><b>Quality Excellence Award</b></td><td>Sustained zero-defect or top First Pass Yield</td><td class="n">20</td></tr>
         <tr><td><b>Zero-Defect Milestone</b></td><td>Consecutive output with zero QA findings</td><td class="n">20</td></tr>
-        <tr><td><b>Innovation / Process Improvement</b></td><td>Adopted improvement that reduces COQ or cycle time</td><td class="n">25</td></tr>
+        <tr><td><b>Innovation / Process Improvement</b></td><td>Adopted improvement that reduces rework or cycle time</td><td class="n">25</td></tr>
         <tr><td><b>Employee of the Quarter</b></td><td>Top overall contributor (committee selection)</td><td class="n">40</td></tr>
       </tbody>
     </table>
     <div style="display:grid;gap:16px">
-      <div class="card"><div class="lbl">Performance standing</div>
-        <table class="t" style="margin-top:8px;font-size:14px"><tbody>
-          <tr><td><b>Exemplary</b></td><td class="n">Net ≥ 40</td></tr>
-          <tr><td><b>Commendable</b></td><td class="n">15 – 39</td></tr>
-          <tr><td><b>Meets Standard</b></td><td class="n">0 – 14</td></tr>
-          <tr><td><b>Needs Improvement</b></td><td class="n">below 0</td></tr>
-          <tr><td><b>Under Review</b></td><td class="n">any Critical</td></tr>
-        </tbody></table>
-        <p style="font-size:13px;margin-top:8px">Net Score = coins earned − demerit points in the period</p></div>
-      <div class="card"><div class="lbl">Redemption</div><p style="margin-top:6px"><b>Encashment · Coop · Canteen</b><br>Peso value per coin, caps and expiry set by RZM within the NTC budget.</p></div>
+      <div class="card"><div class="lbl">How coins work</div>
+        <ul style="margin-top:8px">
+          <li>Coins credit only after validation and Division Lead approval</li>
+          <li>Coins accumulate in the employee's balance for redemption</li>
+          <li>A Critical incident or decertification suspends reward eligibility for the period</li>
+        </ul></div>
+      <div class="card"><div class="lbl">Redemption</div><p style="margin-top:6px"><b>Encashment · Coop · Canteen</b><br>Peso value per coin and caps set by RZM within the NTC budget.</p></div>
     </div>
   </div>
   <div class="foot"></div>
@@ -323,20 +319,20 @@ svg text { font-family: var(--font); }
       </tbody>
     </table>
     <table class="t">
-      <thead><tr><th>Corrective action</th><th class="n">Demerit pts</th></tr></thead>
+      <thead><tr><th>Progressive corrective action</th><th>Description</th></tr></thead>
       <tbody>
-        <tr><td>Coaching Session</td><td class="n">0</td></tr>
-        <tr><td>Verbal Warning</td><td class="n">5</td></tr>
-        <tr><td>Written Warning</td><td class="n">15</td></tr>
-        <tr><td>Performance Improvement Plan</td><td class="n">20</td></tr>
-        <tr><td>Final Written Warning</td><td class="n">30</td></tr>
-        <tr><td>Decertification</td><td class="n">30</td></tr>
-        <tr><td>Suspension (HR determination)</td><td class="n">50</td></tr>
+        <tr><td>Coaching Session</td><td>Documented one-on-one coaching</td></tr>
+        <tr><td>Verbal Warning</td><td>Documented verbal warning</td></tr>
+        <tr><td>Written Warning</td><td>Formal warning after due process</td></tr>
+        <tr><td>Performance Improvement Plan</td><td>Defined targets and timeline</td></tr>
+        <tr><td>Final Written Warning</td><td>Last warning before HR escalation</td></tr>
+        <tr><td>Decertification</td><td>Retraining and reassessment required</td></tr>
+        <tr><td>Suspension</td><td>HR determination</td></tr>
       </tbody>
     </table>
   </div>
   <div class="note" style="font-style:normal;color:var(--ink2);font-size:14px;bottom:62px">
-    <b>Due process:</b> Notice to Explain → Employee Response → Decision (HR review for Written Warning and above). &nbsp; <b>Eligibility:</b> a Critical incident, decertification, or 30+ demerit points in the period makes the employee ineligible for rewards. &nbsp; <b>Status:</b> owner not yet assigned; HR review required.</div>
+    <b>Due process:</b> Notice to Explain → Employee Response → Decision (HR review for Written Warning and above). &nbsp; <b>Eligibility:</b> a Critical incident or decertification in the period makes the employee ineligible for rewards. &nbsp; <b>Status:</b> owner not yet assigned; HR review required.</div>
   <div class="foot"></div>
 </div></section>
 
@@ -347,8 +343,8 @@ svg text { font-family: var(--font); }
   <div class="body" style="display:flex;flex-direction:column;gap:16px;top:128px">
     <div class="kpis" id="kpis"></div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
-      <div class="card" style="padding:12px 16px"><div class="lbl">Cost of Quality by category (₱)</div><svg id="coq" viewBox="0 0 540 210" width="100%" role="img" aria-label="Cost of Quality by category"></svg></div>
-      <div class="card" style="padding:12px 16px"><div class="lbl">Coins vs demerit points by department</div><svg id="md" viewBox="0 0 540 210" width="100%" role="img" aria-label="Coins versus demerit points by department"></svg></div>
+      <div class="card" style="padding:12px 16px;display:flex;flex-direction:column"><div class="lbl">Cost of Quality by category (₱)</div><div style="flex:1;margin-top:10px;border:2px dashed var(--grey);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;padding:20px;min-height:180px"><span class="pill pend">Placeholder</span><b style="font-size:18px;color:var(--navy)">To be defined with the Quality pillar (ODT)</b><span style="font-size:14px;color:var(--muted)">Prevention · Appraisal · Internal Failure · External Failure</span></div></div>
+      <div class="card" style="padding:12px 16px"><div class="lbl">Coins awarded by department</div><svg id="md" viewBox="0 0 540 210" width="100%" role="img" aria-label="Coins awarded by department"></svg></div>
     </div>
   </div>
   <div class="note">Sample: 10 fictional employees, Jan–Dec 2026 review period. Tabs: Guide · Rewards_Program · Dashboard · Merit_Scorecard · Qualification_Log · Recognition_Log · Corrective_Action_Log · Employee_Master · Reference_Data</div>
@@ -358,7 +354,7 @@ svg text { font-family: var(--font); }
 <!-- 12 SCORECARD -->
 <section class="frame"><div class="slide">
   <div class="s-title">Performance Scorecard</div>
-  <div class="s-kicker">Every employee's standing and reward eligibility, calculated automatically &nbsp;<span class="sample">ILLUSTRATIVE SAMPLE DATA</span></div>
+  <div class="s-kicker">Coins earned and reward eligibility per employee, calculated automatically &nbsp;<span class="sample">ILLUSTRATIVE SAMPLE DATA</span></div>
   <div class="body"><table class="t" id="score" style="font-size:14px"></table></div>
   <div class="foot"></div>
 </div></section>
@@ -369,18 +365,17 @@ svg text { font-family: var(--font); }
   <div class="s-kicker">Available as an Excel form and an online form.</div>
   <div class="body" style="display:grid;grid-template-columns:1.35fr 1fr;gap:26px;align-items:start">
     <div class="fp">
-      <div class="sec"><span>A. Submitter &amp; Nominee Information</span><span>SRS Tracking #: &lt;by Recording&gt;</span></div>
-      <div class="row"><div class="f"><span>Nominee Name:</span><i></i></div><div class="f"><span>Employee ID #:</span><i></i></div><div class="f"><span>Department:</span><i></i></div><div class="f"><span>Shift:</span><i></i></div><div class="f"><span>Submitted by:</span><i></i></div><div class="f"><span>Division Lead:</span><i></i></div></div>
-      <div class="sec"><span>B. Achievement Information</span></div>
-      <div class="row"><div class="f"><span>Pillar:</span><i></i></div><div class="f"><span>Recognition Type:</span><i></i></div><div class="f"><span>Measure:</span><i></i></div><div class="f"><span>Period:</span><i></i></div></div>
-      <div class="sec"><span>C. Result, Evidence &amp; Impact</span></div>
-      <div class="chk"><span>Improves quality / FPY</span><span>Reduces cycle time or backlog</span><span>Reduces Cost of Quality</span><span>Improves CSAT</span><span>Improves efficiency / SLA</span><span>Supports another department</span></div>
-      <div class="sec"><span>D. Eligibility Declaration · E. Validation &amp; Approval</span></div>
-      <div style="padding:8px 14px;color:var(--muted)">Declaration checkboxes · validator · Division Lead approval · coins · date recorded</div>
+      <div class="sec"><span>1 · Nominee &amp; Submitter</span></div>
+      <div class="row"><div class="f">Nominee name<i></i></div><div class="f">Employee ID<i></i></div><div class="f">Department<i></i></div><div class="f">Manager / Team Lead<i></i></div><div class="f">Division Lead<i></i></div><div class="f">Submitted by<i></i></div></div>
+      <div class="sec"><span>2 · Achievement</span></div>
+      <div class="row"><div class="f">Pillar<i></i></div><div class="f w2">Measure<i></i></div><div class="f">Recognition type<i></i></div><div class="f">Period from<i></i></div><div class="f">Period to<i></i></div></div>
+      <div class="sec"><span>3 · Result &amp; Evidence</span></div>
+      <div class="row"><div class="f">Baseline / target<i></i></div><div class="f">Actual result<i></i></div><div class="f">Evidence references<i></i></div><div class="f w3">What was achieved and how<i class="tall"></i></div></div>
+      <div class="sec"><span>4 · Eligibility Declaration</span><span>5 · Validation &amp; Approval <small>(program use)</small></span></div>
     </div>
     <div style="display:grid;gap:14px">
       <div class="card"><div class="lbl">Who submits</div><p style="margin-top:6px">Employee (self), Team Lead, peer, QA / SME, or the benefiting department for cross-department awards.</p></div>
-      <div class="card"><div class="lbl">What the form captures</div><p style="margin-top:6px">A <b>measured result with evidence</b>: pillar, measure, baseline vs actual, impact, and an eligibility declaration.</p></div>
+      <div class="card"><div class="lbl">What the form captures</div><p style="margin-top:6px">A <b>measured result with evidence</b>: pillar, measure, baseline vs actual, and an eligibility declaration.</p></div>
       <a href="forms/submission-form.html" style="display:block;text-align:center;background:var(--sky);color:var(--white);font-weight:bold;font-size:18px;padding:14px;border-radius:6px;text-decoration:none">Open the online form →</a>
     </div>
   </div>
@@ -394,7 +389,7 @@ svg text { font-family: var(--font); }
     <div class="card"><h3>PTC</h3><p>Program sponsor. Endorses concept, specification and budget.</p></div>
     <div class="card"><h3>Pillar Owners</h3><p>Maintain criteria and measures. Validate achievements in their pillar.</p></div>
     <div class="card"><h3>Division Leads</h3><p>Approve recognitions, including cross-department. Approve Written Warning and above. Quarterly calibration.</p></div>
-    <div class="card"><h3>Team Leads &amp; Process Trainers</h3><p>Nominate. Certify staff. Log quality events and Cost of Quality. Coach.</p></div>
+    <div class="card"><h3>Team Leads &amp; Process Trainers</h3><p>Nominate. Certify staff. Log quality events. Coach.</p></div>
     <div class="card"><h3>HR</h3><p>Due process, labor-law alignment, official records, suspensions.</p></div>
     <div class="card"><h3>Program Owner</h3><p>Keeps the common rules, publishes results, runs quarterly and annual reviews.</p></div>
   </div>
@@ -426,42 +421,11 @@ svg text { font-family: var(--font); }
   <div class="foot"></div>
 </div></section>
 
-<!-- 16 RISKS -->
-<section class="frame"><div class="slide">
-  <div class="s-title">Risks &amp; Mitigations</div>
-  <div class="body">
-    <table class="t" style="font-size:15px">
-      <thead><tr><th style="width:34%">Risk</th><th>Mitigation</th></tr></thead>
-      <tbody>
-        <tr><td><b>Perceived unfairness</b> across departments</td><td>One set of categories, coin values and gates. Quarterly calibration by Division Leads.</td></tr>
-        <tr><td><b>Gaming metrics</b> or surveys</td><td>Evidence and validator on every submission. Eligibility declaration. Solicited results excluded.</td></tr>
-        <tr><td><b>Budget overrun</b> on redemption</td><td>Peso value per coin, quarterly caps and expiry set within the NTC budget.</td></tr>
-        <tr><td><b>Labor-law exposure</b> on attendance and discipline</td><td>HR review of corrective action steps. Approved leave must not disqualify an employee.</td></tr>
-        <tr><td><b>Double rewards</b> from overlapping measures</td><td>Each measure belongs to one pillar only (e.g., FPY under Quality, FCR under CSAT).</td></tr>
-        <tr><td><b>Tracking at scale</b> in Excel</td><td>Host on SharePoint for co-authoring now. Move to a database or Salesforce as volume grows.</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="foot"></div>
-</div></section>
-
-<!-- 17 DECISIONS -->
-<section class="frame"><div class="slide">
-  <div class="s-title">Decisions Requested</div>
-  <div class="body" style="display:grid;grid-template-columns:repeat(2,1fr);gap:18px;align-content:center">
-    <div class="card"><div class="big-num">1</div><h3>Endorse the concept</h3><p>Approve the SBSI Reward System structure and common rules as presented.</p></div>
-    <div class="card"><div class="big-num">2</div><h3>Assign accountability owner</h3><p>Name an owner, with HR, for the Performance Accountability component.</p></div>
-    <div class="card"><div class="big-num">3</div><h3>Set budget direction</h3><p>Guide NTC and RZM on quarterly reward budget and redemption value.</p></div>
-    <div class="card"><div class="big-num">4</div><h3>Approve the pilot</h3><p>Pilot with one or two departments for one quarter, then calibrate coin values and thresholds.</p></div>
-  </div>
-  <div class="foot"></div>
-</div></section>
-
 </div>
 
 <nav id="bar" aria-label="Slide navigation">
   <button id="prev" type="button" aria-label="Previous slide">◀</button>
-  <span class="count" id="count">1 / 17</span>
+  <span class="count" id="count">1 / 15</span>
   <button id="next" type="button" aria-label="Next slide">▶</button>
   <span class="ttl">SBSI Reward System · Program Concept</span>
   <span class="spacer"></span>
@@ -482,65 +446,45 @@ svg text { font-family: var(--font); }
   });
 
   // ---------- sample data (from performance-qualification-matrix_2026-09-29.xlsx, recalculated) ----------
-  var kpis = [["10", "Active employees"], ["9", "Active certifications"], ["1", "Decertifications"], ["₱82,000", "Cost of Quality"],
-              ["120", "Coins awarded"], ["50", "Demerit points issued"], ["3", "Cross-dept recognitions"], ["1", "Open corrective actions"]];
+  var kpis = [["10", "Active employees"], ["9", "Active certifications"], ["1", "Decertifications"], ["₱ —", "Cost of Quality (TBD)"],
+              ["120", "Coins awarded"], ["7", "Recognitions approved"], ["3", "Cross-dept recognitions"], ["1", "Open corrective actions"]];
   document.getElementById('kpis').innerHTML = kpis.map(function (k) { return '<div class="kpi"><div class="v">' + k[0] + '</div><div class="k">' + k[1] + '</div></div>'; }).join('');
 
   var NS = 'http://www.w3.org/2000/svg';
   function el(svg, tag, at, txt) { var e = document.createElementNS(NS, tag); for (var k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
   function fmt(n) { return n.toLocaleString('en-US'); }
 
-  // COQ horizontal bars
-  (function () {
-    var svg = document.getElementById('coq');
-    var d = [["Prevention", 8000, "#0056B8"], ["Appraisal", 1500, "#0056B8"], ["Internal Failure", 6000, "#162241"], ["External Failure", 66500, "#162241"]];
-    var x0 = 120, W = 330, max = 70000, rowH = 38, y0 = 16;
-    [0, 20000, 40000, 60000].forEach(function (t) { var x = x0 + W * t / max; el(svg, 'line', { x1: x, x2: x, y1: y0 - 6, y2: y0 + rowH * 4, stroke: '#DFE3EB', 'stroke-width': 1 }); el(svg, 'text', { x: x, y: y0 + rowH * 4 + 16, 'text-anchor': 'middle', 'font-size': 11, fill: '#6B7280' }, t ? (t / 1000) + 'k' : '0'); });
-    d.forEach(function (r, i) {
-      var y = y0 + i * rowH, w = W * r[1] / max;
-      el(svg, 'text', { x: x0 - 8, y: y + 20, 'text-anchor': 'end', 'font-size': 13, fill: '#000' }, r[0]);
-      el(svg, 'rect', { x: x0, y: y + 6, width: Math.max(w, 2), height: 22, fill: r[2], rx: 2 });
-      el(svg, 'text', { x: x0 + w + 6, y: y + 22, 'font-size': 12, fill: '#000', 'font-weight': 'bold' }, '₱' + fmt(r[1]));
-    });
-    el(svg, 'text', { x: 0, y: 205, 'font-size': 12, fill: '#C62828', 'font-weight': 'bold' }, 'Cost of Poor Quality (internal + external failure): ₱72,500');
-  })();
-
-  // Merit vs demerit grouped columns
+  // Coins by department
   (function () {
     var svg = document.getElementById('md');
-    var d = [["Design", 60, 45], ["Permitting", 10, 0], ["Interconn.", 15, 0], ["QA", 35, 0], ["Proj. Mgmt", 0, 5], ["Cust. Care", 0, 0]];
-    var x0 = 34, y0 = 12, H = 140, max = 60, gw = 82, bw = 26;
+    var d = [["Design", 60], ["Permitting", 10], ["Interconn.", 15], ["QA", 35], ["Proj. Mgmt", 0], ["Cust. Care", 0]];
+    var x0 = 34, y0 = 14, H = 150, max = 60, gw = 82, bw = 40;
     [0, 20, 40, 60].forEach(function (t) { var y = y0 + H - H * t / max; el(svg, 'line', { x1: x0, x2: 530, y1: y, y2: y, stroke: '#DFE3EB', 'stroke-width': 1 }); el(svg, 'text', { x: x0 - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#6B7280' }, t); });
     d.forEach(function (r, i) {
-      var gx = x0 + 10 + i * gw;
-      [[r[1], '#0056B8'], [r[2], '#C62828']].forEach(function (v, j) {
-        var h = H * v[0] / max, x = gx + j * (bw + 3);
-        el(svg, 'rect', { x: x, y: y0 + H - h, width: bw, height: Math.max(h, 0.001), fill: v[1] });
-        if (v[0]) el(svg, 'text', { x: x + bw / 2, y: y0 + H - h - 4, 'text-anchor': 'middle', 'font-size': 11, fill: '#000' }, v[0]);
-      });
-      el(svg, 'text', { x: gx + bw + 1, y: y0 + H + 16, 'text-anchor': 'middle', 'font-size': 11, fill: '#000' }, r[0]);
+      var gx = x0 + 20 + i * gw, h = H * r[1] / max;
+      el(svg, 'rect', { x: gx, y: y0 + H - h, width: bw, height: Math.max(h, 0.001), fill: '#0056B8' });
+      el(svg, 'text', { x: gx + bw / 2, y: y0 + H - h - 5, 'text-anchor': 'middle', 'font-size': 12, fill: '#000', 'font-weight': 'bold' }, r[1]);
+      el(svg, 'text', { x: gx + bw / 2, y: y0 + H + 18, 'text-anchor': 'middle', 'font-size': 11, fill: '#000' }, r[0]);
     });
-    el(svg, 'rect', { x: 330, y: 190, width: 10, height: 10, fill: '#0056B8' }); el(svg, 'text', { x: 344, y: 199, 'font-size': 12, fill: '#000' }, 'Coins');
-    el(svg, 'rect', { x: 400, y: 190, width: 10, height: 10, fill: '#C62828' }); el(svg, 'text', { x: 414, y: 199, 'font-size': 12, fill: '#000' }, 'Demerit');
   })();
 
   // scorecard
   (function () {
     var rows = [
-      ["E-1001", "Andrea Villanueva", "Design", 2, 0, "₱0", 45, 0, 45, "Exemplary", "Eligible"],
-      ["E-1007", "Grace Bautista", "Quality Assurance", 1, 0, "₱1,500", 20, 0, 20, "Commendable", "Eligible"],
-      ["E-1002", "Carlo Mendoza", "Design", 1, 1, "₱3,500", 15, 0, 15, "Commendable", "Eligible"],
-      ["E-1005", "Ella Navarro", "Interconnection", 1, 0, "₱0", 15, 0, 15, "Commendable", "Eligible"],
-      ["E-1008", "Hector Lim", "Quality Assurance", 1, 0, "₱8,000", 15, 0, 15, "Commendable", "Eligible"],
-      ["E-1003", "Bea Santos", "Permitting", 0, 0, "₱0", 10, 0, 10, "Meets Standard", "Eligible"],
-      ["E-1004", "Daniel Reyes", "Permitting", 1, 1, "₱9,500", 0, 0, 0, "Meets Standard", "Eligible"],
-      ["E-1006", "Francis Aquino", "Interconnection", 1, 1, "₱2,500", 0, 0, 0, "Meets Standard", "Eligible"],
-      ["E-1009", "Ivy Castillo", "Project Management", 0, 0, "₱0", 0, 5, -5, "Needs Improvement", "Eligible"],
-      ["E-1010", "Jomar Dela Cruz", "Design", 1, 2, "₱57,000", 0, 45, -45, "Under Review", "Ineligible"]];
-    var pill = { "Exemplary": "ok", "Commendable": "rev", "Meets Standard": "rev", "Needs Improvement": "pend", "Under Review": "bad", "Eligible": "ok", "Ineligible": "bad" };
-    var h = '<thead><tr><th>ID</th><th>Employee</th><th>Department</th><th class="n">Active certs</th><th class="n">Quality incidents</th><th class="n">COQ</th><th class="n">Coins</th><th class="n">Demerit</th><th class="n">Net</th><th>Standing</th><th>Reward eligibility</th></tr></thead><tbody>';
+      ["E-1001", "Andrea Villanueva", "Design", 2, 0, 2, 45, "Eligible"],
+      ["E-1007", "Grace Bautista", "Quality Assurance", 1, 0, 1, 20, "Eligible"],
+      ["E-1002", "Carlo Mendoza", "Design", 1, 1, 1, 15, "Eligible"],
+      ["E-1005", "Ella Navarro", "Interconnection", 1, 0, 1, 15, "Eligible"],
+      ["E-1008", "Hector Lim", "Quality Assurance", 1, 0, 1, 15, "Eligible"],
+      ["E-1003", "Bea Santos", "Permitting", 0, 0, 1, 10, "Eligible"],
+      ["E-1004", "Daniel Reyes", "Permitting", 1, 1, 0, 0, "Eligible"],
+      ["E-1006", "Francis Aquino", "Interconnection", 1, 1, 0, 0, "Eligible"],
+      ["E-1009", "Ivy Castillo", "Project Management", 0, 0, 0, 0, "Eligible"],
+      ["E-1010", "Jomar Dela Cruz", "Design", 1, 2, 0, 0, "Ineligible"]];
+    var pill = { "Eligible": "ok", "Ineligible": "bad" };
+    var h = '<thead><tr><th>ID</th><th>Employee</th><th>Department</th><th class="n">Active certs</th><th class="n">Quality incidents</th><th class="n">COQ</th><th class="n">Recognitions</th><th class="n">Coins</th><th>Reward eligibility</th></tr></thead><tbody>';
     rows.forEach(function (r) {
-      h += '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td class="n">' + r[3] + '</td><td class="n">' + r[4] + '</td><td class="n">' + r[5] + '</td><td class="n">' + r[6] + '</td><td class="n">' + r[7] + '</td><td class="n"><b>' + r[8] + '</b></td><td><span class="pill ' + pill[r[9]] + '">' + r[9] + '</span></td><td><span class="pill ' + pill[r[10]] + '">' + r[10] + '</span></td></tr>';
+      h += '<tr><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td class="n">' + r[3] + '</td><td class="n">' + r[4] + '</td><td class="n" style="color:var(--muted)">—</td><td class="n">' + r[5] + '</td><td class="n"><b>' + r[6] + '</b></td><td><span class="pill ' + pill[r[7]] + '">' + r[7] + '</span></td></tr>';
     });
     document.getElementById('score').innerHTML = h + '</tbody>';
   })();
